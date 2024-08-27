@@ -66,15 +66,6 @@ struct LightSm
     // Used internally by state machine. Feel free to inspect, but don't modify.
     LightSm_StateId state_id;
     
-    // Used internally by state machine. Don't modify.
-    LightSm_Func ancestor_event_handler;
-    
-    // Used internally by state machine. Don't modify.
-    LightSm_Func current_event_handlers[LightSm_EventIdCount];
-    
-    // Used internally by state machine. Don't modify.
-    LightSm_Func current_state_exit_handler;
-    
     // Variables. Can be used for inputs, outputs, user variables...
     LightSm_Vars vars;
 };
