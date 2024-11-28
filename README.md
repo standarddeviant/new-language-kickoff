@@ -11,9 +11,6 @@ Related discussion: https://github.com/StateSmith/StateSmith/discussions/374
 # Step 0 - open an issue
 Please open a new issue with the language to support before doing any significant work on it. This will help coordinate efforts. Maybe someone else is already working on it or has some insights to share.
 
-The current StateSmith [algorithm](https://github.com/StateSmith/StateSmith/wiki/Algorithms) requires something like function pointers/objects/lambdas/delegates to work. If your language doesn't support this, it will be a bit more challenging to implement until we add an algorithm that uses something like switch-case statements. I'm looking forward to adding new algorithms, but it will take some time.
-
-
 <br>
 
 # Step 1 - manual code translation
