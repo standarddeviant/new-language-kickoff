@@ -3,13 +3,18 @@ First of all, thank you!!! I really appreciate your help in allowing more people
 
 This can be a bit tricky, but I'll do my best to help you with it.
 
-Related discussion: https://github.com/StateSmith/StateSmith/discussions/374
+# NOTE!
+You don't need to run any `.csx` files or `ss.cli` commands in this directory. We are just concerned with manual translation first.
 
 
 <br>
 
 # Step 0 - open an issue
 Please open a new issue with the language to support before doing any significant work on it. This will help coordinate efforts. Maybe someone else is already working on it or has some insights to share.
+
+
+The current default StateSmith [algorithm](https://github.com/StateSmith/StateSmith/wiki/Algorithms) requires something like switch/case statements. If your language doesn't support this, it will be a bit more challenging to implement. We also have a function pointer based algorithm although I prefer starting with simpler switch/case if possible.
+
 
 <br>
 
@@ -29,3 +34,6 @@ See [./new-lang/README.md](./new-lang/README.md) for more details.
 
 # Step 2 - open a PR
 Open a PR into this repository with the translated code. This will make it easy for us to discuss the approach.
+
+
+Related discussion: https://github.com/StateSmith/StateSmith/discussions/374

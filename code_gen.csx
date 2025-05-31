@@ -1,6 +1,11 @@
 #!/usr/bin/env dotnet-script
-// If you have any questions about this file, check out https://github.com/StateSmith/tutorial-2
-#r "nuget: StateSmith, 0.11.2-alpha"
+
+// NOTE! this file only needs to be run by maintainers.
+// It generates the files to be manually translated.
+
+// Run with this: dotnet-script code_gen.csx --isolated-load-context
+
+#r "nuget: StateSmith, 0.17.5"
 
 using StateSmith.Common;
 using StateSmith.Input.Expansions;
