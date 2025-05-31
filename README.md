@@ -12,6 +12,7 @@ You don't need to run any `.csx` files or `ss.cli` commands in this directory. W
 # Step 0 - open an issue
 Please open a new issue with the language to support before doing any significant work on it. This will help coordinate efforts. Maybe someone else is already working on it or has some insights to share.
 
+
 The current default StateSmith [algorithm](https://github.com/StateSmith/StateSmith/wiki/Algorithms) requires something like switch/case statements. If your language doesn't support this, it will be a bit more challenging to implement. We also have a function pointer based algorithm although I prefer starting with simpler switch/case if possible.
 
 
