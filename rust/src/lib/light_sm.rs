@@ -1,5 +1,5 @@
 // LightSm.rs
-include!("./Light.rs"); // this is a bit of a hack...
+include!("./light.rs"); // this is a bit of a hack...
 
 #[allow(dead_code)]
 #[allow(non_snake_case)] // turn off opinionated rust-analyzer warnings
@@ -12,8 +12,7 @@ pub enum EventId {
     OFF = 2,
 }
 
-#[allow(non_upper_case_globals)] // turn off opinionated rust-analyzer warnings
-pub const EventId_Count: usize = 3;
+pub const EVENT_ID_COUNT: usize = 3;
 
 #[allow(dead_code)]
 #[allow(non_snake_case)] // turn off opinionated rust-analyzer warnings
@@ -28,16 +27,13 @@ pub enum StateId {
     ON2 = 4,
 }
 
-#[allow(dead_code)]
-#[allow(non_upper_case_globals)] // turn off opinionated rust-analyzer warnings
-pub const StateId_Count: usize = 3;
+pub const STATE_ID_COUNT: usize = 3;
 
 // Generated state machine
 // forward declaration
 // typedef struct LightSm LightSm;
 
 // State machine variables. Can be used for inputs, outputs, user variables...
-#[allow(dead_code)]
 #[derive(Default)]
 pub struct LightSm {
     state_id: StateId,
@@ -47,7 +43,6 @@ pub struct LightSm {
     pub light: Light,
 }
 
-#[allow(dead_code)]
 impl LightSm {
     // State machine constructor. Must be called before start or dispatch event functions. Not thread safe.
     pub fn new() -> LightSm {

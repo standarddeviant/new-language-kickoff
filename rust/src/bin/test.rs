@@ -1,7 +1,7 @@
 #[allow(non_snake_case)] // turn off opinionated rust-analyzer warnings
 
 //
-use LightSmLib::LightSm;
+use light_sm::LightSm;
 
 // #include "Light.h"
 // #include "LightSm.h"
@@ -37,24 +37,24 @@ fn test_inc_events() {
 
     ASSERT_LIGHT_COLOR(&sm, "off".into());
 
-    sm.dispatch_event(LightSmLib::EventId::INC);
+    sm.dispatch_event(light_sm::EventId::INC);
     ASSERT_LIGHT_COLOR(&sm, "blue".into());
 
-    sm.dispatch_event(LightSmLib::EventId::INC);
+    sm.dispatch_event(light_sm::EventId::INC);
     ASSERT_LIGHT_COLOR(&sm, "yellow".into());
     assert!(sm.count == 0);
 
     // count starts going up
-    sm.dispatch_event(LightSmLib::EventId::INC);
+    sm.dispatch_event(light_sm::EventId::INC);
     ASSERT_LIGHT_COLOR(&sm, "yellow".into());
     assert!(sm.count == 1);
 
-    sm.dispatch_event(LightSmLib::EventId::INC);
+    sm.dispatch_event(light_sm::EventId::INC);
     ASSERT_LIGHT_COLOR(&sm, "yellow".into());
     assert!(sm.count == 2);
 
     // count reaches 3, so we go back to off
-    sm.dispatch_event(LightSmLib::EventId::INC);
+    sm.dispatch_event(light_sm::EventId::INC);
     ASSERT_LIGHT_COLOR(&sm, "off".into());
     assert!(sm.count == 3);
 }
@@ -68,10 +68,10 @@ fn test_dim_events() {
 
     ASSERT_LIGHT_COLOR(&sm, "off".into());
 
-    sm.dispatch_event(LightSmLib::EventId::INC);
+    sm.dispatch_event(light_sm::EventId::INC);
     ASSERT_LIGHT_COLOR(&sm, "blue".into());
 
-    sm.dispatch_event(LightSmLib::EventId::DIM);
+    sm.dispatch_event(light_sm::EventId::DIM);
     ASSERT_LIGHT_COLOR(&sm, "off".into());
 }
 
@@ -82,9 +82,9 @@ fn test_off_events() {
     // LightSm_ctor(&sm);
     sm.start();
 
-    sm.dispatch_event(LightSmLib::EventId::INC);
+    sm.dispatch_event(light_sm::EventId::INC);
     ASSERT_LIGHT_COLOR(&sm, "blue".into());
 
-    sm.dispatch_event(LightSmLib::EventId::OFF);
+    sm.dispatch_event(light_sm::EventId::OFF);
     ASSERT_LIGHT_COLOR(&sm, "off".into());
 }

@@ -6,8 +6,8 @@ edition = "2024"
 [dependencies]
 
 [lib]
-name = "LightSmLib"
-path = "src/lib/LightSm.rs"
+name = "light_sm"
+path = "src/lib/light_sm.rs"
 
 [[bin]]
 name = "test"
