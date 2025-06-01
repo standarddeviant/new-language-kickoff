@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "new-language-kickoff-rust"
+name = "LightSm"
 version = "0.1.0"

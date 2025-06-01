@@ -1,7 +1,5 @@
-// #pragma once  // You can also specify normal include guard. See https://github.com/StateSmith/StateSmith/blob/main/docs/settings.md
-// #include <stdint.h>
-
-use super::Light::Light; // TODO: determine how to import/use/integrate Light vs. LightSm
+// LightSm.rs
+include!("./Light.rs"); // this is a bit of a hack...
 
 #[allow(dead_code)]
 #[allow(non_snake_case)] // turn off opinionated rust-analyzer warnings
@@ -109,6 +107,7 @@ impl LightSm {
             // STATE: ON_GROUP
             StateId::ON_GROUP => match event_id {
                 EventId::OFF => self.ON_GROUP_off(),
+                #[allow(unreachable_patterns)]
                 _ => {} // to avoid "unused enumeration value in match" warning
             },
 
@@ -117,6 +116,7 @@ impl LightSm {
                 EventId::INC => self.ON1_inc(),
                 EventId::DIM => self.ON1_dim(),
                 EventId::OFF => self.ON_GROUP_off(), // First ancestor handler for this event
+                #[allow(unreachable_patterns)]
                 _ => {} // to avoid "unused enumeration value in match" warning
             },
 
@@ -125,6 +125,7 @@ impl LightSm {
                 EventId::INC => self.ON2_inc(),
                 EventId::DIM => self.ON2_dim(),
                 EventId::OFF => self.ON_GROUP_off(),
+                #[allow(unreachable_patterns)]
                 _ => {} // to avoid "unused enumeration value in match" warning
             },
         }
@@ -379,6 +380,7 @@ impl LightSm {
             StateId::ON_GROUP => "ON_GROUP".into(),
             StateId::ON1 => "ON1".into(),
             StateId::ON2 => "ON2".into(),
+            #[allow(unreachable_patterns)]
             _ => "?".into(),
         }
     }
@@ -389,6 +391,7 @@ impl LightSm {
             EventId::DIM => return "DIM".into(),
             EventId::INC => return "INC".into(),
             EventId::OFF => return "OFF".into(),
+            #[allow(unreachable_patterns)]
             _ => "?".into(),
         }
     }
