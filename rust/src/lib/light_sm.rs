@@ -33,24 +33,14 @@ pub const STATE_ID_COUNT: usize = 3;
 // forward declaration
 // typedef struct LightSm LightSm;
 
-// State machine variables. Can be used for inputs, outputs, user variables...
-#[derive(Default)]
-pub struct LightSm {
-    state_id: StateId,
-    event_id: EventId,
-    // vars
-    pub count: isize,
-    pub light: Light,
-}
-
 impl LightSm {
     // State machine constructor. Must be called before start or dispatch event functions. Not thread safe.
     pub fn new() -> LightSm {
         LightSm {
             state_id: StateId::ROOT,
-            event_id: EventId::DIM,
+            // event_id: EventId::DIM,
             count: 0 as isize,
-            light: Light::default(),
+            light_string: "off".into(),
         }
     }
 
@@ -167,7 +157,7 @@ impl LightSm {
         // uml: enter / { Light_off(); }
         {
             // Step 1: execute action `Light_off();`
-            self.light.off();
+            self.turn_off();
         } // end of behavior for OFF
     }
 
@@ -243,7 +233,7 @@ impl LightSm {
         // uml: enter / { Light_blue(); }
         {
             // Step 1: execute action `Light_blue();`
-            self.light.blue();
+            self.turn_blue();
         } // end of behavior for ON1
     }
 
@@ -304,7 +294,7 @@ impl LightSm {
         // uml: enter / { Light_yellow(); }
         {
             // Step 1: execute action `Light_yellow();`
-            self.light.yellow();
+            self.turn_yellow();
         } // end of behavior for ON2
 
         // ON2 behavior

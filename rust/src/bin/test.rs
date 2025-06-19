@@ -2,6 +2,7 @@
 
 //
 use light_sm::LightSm;
+use light_sm::LightSmBase;
 
 // #include "Light.h"
 // #include "LightSm.h"
@@ -12,7 +13,7 @@ use light_sm::LightSm;
 // we use a macro here (instead of a helper function) so that we get easy assert messages with line numbers
 #[allow(non_snake_case)]
 fn ASSERT_LIGHT_COLOR(sm: &LightSm, expected: String) {
-    assert!(sm.light.get_color().eq(&expected))
+    assert!(sm.get_color().eq(&expected))
 }
 
 // prototypes

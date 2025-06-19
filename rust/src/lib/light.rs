@@ -1,31 +1,34 @@
-pub struct Light {
-    light_color: String,
+pub trait LightSmBase {
+    fn turn_off(&mut self);
+    fn turn_blue(&mut self);
+    fn turn_yellow(&mut self);
+    fn get_color(&self) -> String;
 }
 
-impl Default for Light {
-    fn default() -> Self {
-        Light {
-            light_color: "off".into(),
-        }
-    }
+// State machine variables. Can be used for inputs, outputs, user variables...
+#[derive(Default)]
+pub struct LightSm {
+    state_id: StateId,
+    // event_id: EventId,
+    // vars
+    pub count: isize,
+    pub light_string: String,
 }
 
-impl Light {
-    // const char* light_color = "?";
-
-    pub fn off(&mut self) {
-        self.light_color = "off".into();
+impl LightSmBase for LightSm {
+    fn turn_off(&mut self) {
+        self.light_string = "off".into();
     }
 
-    pub fn blue(&mut self) {
-        self.light_color = "blue".into();
+    fn turn_blue(&mut self) {
+        self.light_string = "blue".into();
     }
 
-    pub fn yellow(&mut self) {
-        self.light_color = "yellow".into();
+    fn turn_yellow(&mut self) {
+        self.light_string = "yellow".into();
     }
 
-    pub fn get_color(&self) -> String {
-        return self.light_color.clone();
+    fn get_color(&self) -> String {
+        return self.light_string.clone();
     }
 }
